@@ -1,0 +1,5 @@
+config.ini
+log-config.yaml
+logs/*.log
+logs/*.log.*
+__pycache__/
