@@ -9,6 +9,11 @@ def copy(file):
     shutil.copyfile(srcFile, file)
     print(f"Copied [{file}] to working directory.")
 
+def executeIfYes(file):
+    a = input().strip()
+    if a == "y" or a == "yes":
+        subprocess.run(["python3", file])
+
 try:
     SECRET_FILES_PATH = sys.argv[1]
 except:
@@ -22,11 +27,13 @@ copy("config.ini")
 copy("log-config.yaml")
 print("DONE!")
 
-#test config and enviroment setup if user agrees
+#execute procedures if user agrees
 print("\nWould you like to test config files and enviroment setup? (y/n)")
-a = input().strip()
-if a == "y" or a == "yes":
-    subprocess.run(["python3", "tests/test_config.py"])
+executeIfYes("tests/test_config.py")
+
+print("\nWould you like execute DB migation?(y/n)")
+executeIfYes("migrate_db.py")
+
 
 
 
