@@ -21,7 +21,7 @@ except:
     print("Error: Path to secrets is not given as an argument!")
     exit()
 
-PYTHON_EXECUTABLE = shutil.which("pyhton") or shutil.which("python3")
+PYTHON_EXECUTABLE = shutil.which("python") or shutil.which("python3")
 
 
 #copy files from secrets folder
